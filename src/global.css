@@ -1,0 +1,74 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+
+  html {
+  font-family: system-ui, sans-serif;
+  background-color: white;
+  scroll-behavior: smooth;
+  }
+  code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a {
+  @apply text-secondary
+  }
+
+  h1 {
+    @apply text-5xl font-light pb-5
+  }
+
+  h2 {
+    @apply text-4xl font-light pb-8
+  }
+
+  p,ul,table {
+  @apply pb-5 font-extralight text-sm md:text-lg
+  }
+  
+
+  pre {
+    @apply p-5 text-[14px] my-5 rounded shadow-lg
+  }
+
+  article iframe {
+    @apply shadow-lg rounded
+  }
+
+  article table {
+    @apply border-gray-900 border-[0.5px] p-10
+  }
+
+  article figcaption p {
+    @apply text-sm font-postTimes pt-3 pl-2 pb-0
+  }
+
+  article figure {
+    @apply py-10
+  }
+
+  article th,td {
+    @apply p-3
+  }
+
+  article p,li {
+   @apply font-postInter font-thin text-lg 
+  }
+
+  article img {
+    @apply rounded shadow-lg
+  }
+
+}
+
