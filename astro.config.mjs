@@ -15,5 +15,14 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   integrations: [react(), tailwind(), mdx()],
   site: 'https://roborbob.github.io',
-  base: '/astro-skeleton/'
+  base: '/astro-skeleton/',
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: 'astro-skeleton/assets/*.[extname]',
+        },
+      },
+    },
+  },
 });

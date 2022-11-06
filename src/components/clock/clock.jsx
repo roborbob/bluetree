@@ -4,12 +4,13 @@ export default function Clock() {
     const time = new Date().toLocaleTimeString()
     const [currentTime, setCurrentTime] = React.useState(time)
 
-    const updateTime = () => {
+
+
+    React.useEffect(()=> {
+      const updateTime = () => {
         let time = new Date().toLocaleTimeString()
         setCurrentTime(time)
     }
-
-    React.useEffect(()=> {
         setInterval(updateTime,1000)
     },[currentTime]) 
     
