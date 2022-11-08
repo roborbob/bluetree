@@ -4,8 +4,6 @@ export default function Clock() {
     const time = new Date().toLocaleTimeString()
     const [currentTime, setCurrentTime] = React.useState(time)
 
-
-
     React.useEffect(()=> {
       const updateTime = () => {
         let time = new Date().toLocaleTimeString()

@@ -16,7 +16,8 @@ module.exports = {
       },
       fontFamily: {
         postTimes: ["Times New Roman"],
-        postInter: ["Inter,sans-serif"]
+        postInter: ["Inter,sans-serif"],
+        postCharter: ["Charter"]
       }
     },
   },

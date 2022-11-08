@@ -1,18 +1,18 @@
 ---
+const Posts = await Astro.glob("./*.mdx")
+
 import Layout from "../../layouts/Layout.astro";
 
-
-const Posts = await Astro.glob("./*.mdx")
-console.log(Posts[0].frontmatter)
 ---
 
 <Layout title="Posts">
   <h2>Posts here</h2>
   {Posts.map(e => (
-  <div class="w-[350px] h-[400px] relative rounded-md border-gray-100 p-5 flex gap-y-5 flex-col bg-slate-200">
-    <h3 class="font-light text-xl">{e.frontmatter.title}</h3>
-    <img class="absolute left-0 right-0 w-full bottom-0 rounded-b-lg" src={e.frontmatter.shark} alt="something"/>
+    <a href={`/posts/${e.frontmatter.slug}`}>
+      <div class="w-[350px] h-[400px] relative rounded-md border-gray-100 p-5 flex gap-y-5 flex-col bg-slate-200">
+      <h3 class="font-light text-xl">{e.frontmatter.title}</h3>
+     <img class="absolute left-0 right-0 w-full bottom-0 rounded-b-lg" src={e.frontmatter.shark} alt="something"/>
   </div>
+</a>
   ))}
-
 </Layout>
