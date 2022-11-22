@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import PostLayout from "../layouts/PostLayout.astro";
+
+const Posts = await Astro.glob("./posts/*.mdx")
 
 // const URL = `https://api.figma.com/v1/files/W4UnztO8pD0t0TONBmoc1U`;
 // const TOKEN = "figd_J8QYVgxxZORWilKR1TE-xBfsspAfOM2LmEjX7JNd";
@@ -10,14 +11,30 @@ import PostLayout from "../layouts/PostLayout.astro";
 
 // const response = await FIGMADATA.json();
 // console.log(response);
+// const NEWDATA = await fetch("https://demo.ghost.io/ghost/api/content/posts/?key=22444f78447824223cefc48062")
+// const FINAL = await NEWDATA.json();
+// console.log(FINAL)
+// const DATA = await fetch("http://localhost:2368/ghost/api/content/posts/?key=8c850177ed441e8dc3ec0644a5")
+// const RESPONSE = await DATA.json();
+// console.log(RESPONSE)
+
+// const { site } = Astro.generator;
+
 ---
 
 <Layout title="Skeleton Blog">
   <div>
     <div class="mx-auto max-w-7xl px-4 w-full">
       <div class="w-full flex items-center py-8 px-6 text-right">
-        <h1 class="text-5xl font-thin text-secondary w-fit">Oceans</h1>
+        <h1 class="text-5xl font-thin text-secondary w-fit">Home</h1>
       </div>
     </div>
+  </div>
+  <div> 
+    {Posts.map((e) => (
+      <a href={`${Astro.url.href}posts/${e.frontmatter.slug}`} class="hover:underline">
+      <h6 class="font-light">{e.frontmatter.title}</h6>
+    </a>
+    ))}
   </div>
 </Layout>

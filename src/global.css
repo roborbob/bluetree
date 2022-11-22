@@ -72,6 +72,10 @@
    @apply font-postInter font-thin text-lg 
   }
 
+  article iframe {
+   @apply w-full
+  }
+
   article img {
     @apply rounded shadow-lg
   }

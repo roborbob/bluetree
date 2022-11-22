@@ -13,6 +13,7 @@ module.exports = {
       },
       backgroundImage: {
         "hero-shark": "url('/assets/tree.jpg')",
+        "stars": "url('/assets/stars.jpg')"
       },
       fontFamily: {
         postTimes: ["Times New Roman"],
