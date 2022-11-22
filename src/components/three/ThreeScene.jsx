@@ -1,11 +1,10 @@
 import React, { useRef } from 'react'
-import Terrain from "./terrain";
 import Map from "../../assets/map.jpeg"
 import DisMap from "../../assets/dis-map.jpeg";
 import BumMap from "../../assets/bump-map.jpeg";
 import Amap from "../../assets/cloud.jpeg";
 import { Canvas, useLoader, useFrame } from '@react-three/fiber'
-import { TextureLoader } from "three/src/loaders/TextureLoader";
+import { TextureLoader } from "three";
 import {OrbitControls} from '@react-three/drei'
 
 export default function ThreeScene() {
