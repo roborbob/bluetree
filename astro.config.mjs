@@ -1,4 +1,6 @@
-import { defineConfig } from 'astro/config';
+/** @format */
+
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 import react from "@astrojs/react";
@@ -14,15 +16,4 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), tailwind(), mdx()],
-  site: 'https://roborbob.github.io',
-  // base: '/astro-skeleton/',
-  // vite: {
-  //   build: {
-  //     rollupOptions: {
-  //       output: {
-  //         assetFileNames: '/assets/[hash].[extname]',
-  //       },
-  //     },
-  //   },
-  // },
 });

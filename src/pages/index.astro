@@ -1,7 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SwiperComponent from "../components/swiper/Swiper";
+import Simple from "../components/rive/Simple";
+import ThreeScene from "../components/three/ThreeScene";
 
-const Posts = await Astro.glob("./posts/*.mdx")
+const Posts = await Astro.glob("./posts/*.mdx");
+
+// Animations located in public folder
+
+const ANIMATIONS = ["/assets/animations/loaders.riv"];
 
 // const URL = `https://api.figma.com/v1/files/W4UnztO8pD0t0TONBmoc1U`;
 // const TOKEN = "figd_J8QYVgxxZORWilKR1TE-xBfsspAfOM2LmEjX7JNd";
@@ -19,22 +26,10 @@ const Posts = await Astro.glob("./posts/*.mdx")
 // console.log(RESPONSE)
 
 // const { site } = Astro.generator;
-
 ---
 
-<Layout title="Skeleton Blog">
-  <div>
-    <div class="mx-auto max-w-7xl px-4 w-full">
-      <div class="w-full flex items-center py-8 px-6 text-right">
-        <h1 class="text-5xl font-thin text-secondary w-fit">Home</h1>
-      </div>
-    </div>
-  </div>
-  <div> 
-    {Posts.map((e) => (
-      <a href={`${Astro.url.href}posts/${e.frontmatter.slug}`} class="hover:underline">
-      <h6 class="font-light">{e.frontmatter.title}</h6>
-    </a>
-    ))}
+<Layout title="Skeleton">
+  <div class="w-full h-[1200px] flex flex-row bg-black p-20">
+    {ANIMATIONS.map((e) => <Simple animation={e} client:visible />)}
   </div>
 </Layout>
