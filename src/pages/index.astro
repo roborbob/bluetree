@@ -1,35 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SwiperComponent from "../components/swiper/Swiper";
-import Simple from "../components/rive/Simple";
-import ThreeScene from "../components/three/ThreeScene";
+import RivePlayer from "../components/rive/RivePlayer.jsx";
 
 const Posts = await Astro.glob("./posts/*.mdx");
 
-// Animations located in public folder
-
-const ANIMATIONS = ["/assets/animations/loaders.riv"];
-
-// const URL = `https://api.figma.com/v1/files/W4UnztO8pD0t0TONBmoc1U`;
-// const TOKEN = "figd_J8QYVgxxZORWilKR1TE-xBfsspAfOM2LmEjX7JNd";
-// const FIGMADATA = await fetch(URL, {
-//   headers: { "X-Figma-Token": TOKEN },
-// });
-
-// const response = await FIGMADATA.json();
-// console.log(response);
-// const NEWDATA = await fetch("https://demo.ghost.io/ghost/api/content/posts/?key=22444f78447824223cefc48062")
-// const FINAL = await NEWDATA.json();
-// console.log(FINAL)
-// const DATA = await fetch("http://localhost:2368/ghost/api/content/posts/?key=8c850177ed441e8dc3ec0644a5")
-// const RESPONSE = await DATA.json();
-// console.log(RESPONSE)
-
-// const { site } = Astro.generator;
+const ANIMATIONS = "/assets/animations/loaders.riv";
+const ARTBOARDS = ["burger", "loader", "atom", "genuine"];
 ---
 
 <Layout title="Skeleton">
-  <div class="w-full h-[1200px] flex flex-row bg-black p-20">
-    {ANIMATIONS.map((e) => <Simple animation={e} client:visible />)}
+  <div
+    class="w-full flex flex-row justify-around items-center gap-y-20 flex-wrap py-20"
+  >
+    {
+      ARTBOARDS.map((e) => (
+        <RivePlayer animation={ANIMATIONS} artboard={e} client:visible />
+      ))
+    }
   </div>
 </Layout>
