@@ -1,20 +1,46 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import RivePlayer from "../components/rive/RivePlayer.jsx";
+import {
+  RivePlayerOne,
+  RivePlayerTwo,
+  RivePlayerThree,
+} from "../components/rive/RivePlayer.jsx";
 
 const Posts = await Astro.glob("./posts/*.mdx");
 
 const ANIMATIONS = "/assets/animations/loaders.riv";
-const ARTBOARDS = ["burger", "loader", "atom", "genuine"];
+const ARTBOARDS = ["loader", "atom", "genuine"];
+const STATEMACHINES = [{ artboard: "burger", state: "state" }];
+const MONA = [{ artboard: "mona", state: "state" }];
 ---
 
 <Layout title="Skeleton">
   <div
-    class="w-full flex flex-row justify-around items-center gap-y-20 flex-wrap py-20"
+    class="w-full flex flex-col md:flex-row justify-center md:justify-evenly gap-y-20 flex-wrap px-5 py-20"
   >
     {
       ARTBOARDS.map((e) => (
-        <RivePlayer animation={ANIMATIONS} artboard={e} client:visible />
+        <RivePlayerOne animation={ANIMATIONS} artboard={e} client:visible />
+      ))
+    }
+    {
+      STATEMACHINES.map((e) => (
+        <RivePlayerTwo
+          animation={ANIMATIONS}
+          artboard={e.artboard}
+          stateMachine={e.state}
+          client:visible
+        />
+      ))
+    }
+    {
+      MONA.map((e) => (
+        <RivePlayerThree
+          animation={ANIMATIONS}
+          artboard={e.artboard}
+          stateMachine={e.state}
+          client:visible
+        />
       ))
     }
   </div>
