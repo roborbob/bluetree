@@ -1,7 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Cart from "../components/cart/Cart";
+import CartBox from "../components/cart/cartBox";
 ---
 
 <Layout title="about">
-  <h2>About</h2>
+  <div class="p-20">
+    <h2>About</h2>
+    <Cart client:only="react" />
+    <CartBox client:only="react" />
+  </div>
 </Layout>

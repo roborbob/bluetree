@@ -26,12 +26,17 @@ const { title } = Astro.props;
         <li
           class="w-full border-b-[1px] border-slate-800 text-slate-700 p-5 text-thin text-2xl"
         >
-          Animation
+          <a href="/"> Animation</a>
+        </li>
+        <li
+          class="w-full border-b-[1px] border-slate-800 text-slate-700 p-5 text-thin text-2xl"
+        >
+          <a href="/about/"> About</a>
         </li>
       </ul>
     </div>
     <div
-      class="md:left-[150px] lg:left-[200px] absolute w-full top-[80px] md:top-0 md:w-[calc(100%-150px)] lg:w-[calc(100%-200px)]"
+      class="md:left-[150px] lg:left-[200px] absolute w-full top-[160px] md:top-0 md:w-[calc(100%-150px)] lg:w-[calc(100%-200px)]"
     >
       <slot />
     </div>
