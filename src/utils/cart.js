@@ -16,8 +16,12 @@ export class cartItem {
 export const CartState = proxy({
   cartItems: JSON.parse(localStorage.getItem("cart")) ?? [],
   vespa: [],
-  totalPrice: 0,
-  totalItems: 0,
+  get totalPrice() {
+    return CartState.cartItems.reduce((acc, curr) => acc + curr.totalPrice, 0);
+  },
+  get totalItems() {
+    return CartState.cartItems.reduce((acc, curr) => acc + curr.quantity, 0);
+  },
 });
 
 subscribe(CartState, () => {
