@@ -5,7 +5,15 @@ import { CartState, cartItem } from "../../utils/cart";
 
 export default function Cart() {
   const cart = useSnapshot(CartState);
-  const item = new cartItem("sku1234", "Hat", 5, 45, "medium", "Horrible hat");
+  let newItem = {
+    sku: "sku1234",
+    name: "hat",
+    quantity: 5,
+    unitPrice: 45,
+    size: "medium",
+    description: "horrible hat",
+  };
+  const item = new cartItem(newItem);
 
   return (
     <div>
