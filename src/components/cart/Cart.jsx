@@ -6,7 +6,6 @@ import { CartState, cartItem } from "../../utils/cart";
 export default function Cart() {
   const cart = useSnapshot(CartState);
   const item = new cartItem("sku1234", "Hat", 5, 45, "medium", "Horrible hat");
-  console.log(cart);
 
   return (
     <div>

@@ -1,5 +1,5 @@
 /** @format */
-import { proxy } from "valtio";
+import { proxy, subscribe } from "valtio";
 
 export class cartItem {
   constructor(sku, name, quantity, unitPrice, size, description) {
@@ -18,4 +18,8 @@ export const CartState = proxy({
   vespa: [],
   totalPrice: 0,
   totalItems: 0,
+});
+
+subscribe(CartState, () => {
+  localStorage.setItem("cart", JSON.stringify(CartState.cartItems));
 });
