@@ -6,8 +6,6 @@ import {
   RivePlayerThree,
 } from "../components/rive/RivePlayer.jsx";
 
-const Posts = await Astro.glob("./posts/*.mdx");
-
 const ANIMATIONS = "/assets/animations/loaders.riv";
 const ARTBOARDS = ["loader", "atom", "genuine", "motolino"];
 const STATEMACHINES = [{ artboard: "burger", state: "state" }];
@@ -25,12 +23,14 @@ const MONA = [{ artboard: "mona", state: "state" }];
     }
     {
       STATEMACHINES.map((e) => (
-        <RivePlayerTwo
-          animation={ANIMATIONS}
-          artboard={e.artboard}
-          stateMachine={e.state}
-          client:visible
-        />
+        <div class="w-[200px] h-[200px]">
+          <RivePlayerTwo
+            animation={ANIMATIONS}
+            artboard={e.artboard}
+            stateMachine={e.state}
+            client:visible
+          />
+        </div>
       ))
     }
     {

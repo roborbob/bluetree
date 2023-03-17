@@ -1,9 +1,6 @@
 ---
-import Logo from "../assets/logo.svg";
 import "../global.css";
 import { RivePlayerTwo } from "../components/rive/RivePlayer";
-import ThreeScene from "../components/three/ThreeScene";
-import Rive from "@rive-app/canvas/rive_advanced.mjs";
 export interface Props {
   title: string;
 }
@@ -28,8 +25,8 @@ const { title } = Astro.props;
   </head>
   <body class="relative">
     <div class="grid grid-cols-1 md:grid-cols-[300px,1fr] relative align-start">
-      <div class="sticky w-full h-fit top-0">
-        <div class="w-[150px] h-[150px] mt-10 ml-10">
+      <div class="sticky w-full h-fit top-0 bg-white z-50">
+        <div class="w-[150px] h-[150px] mt-10 mx-auto md:ml-10">
           <RivePlayerTwo
             animation={"/assets/animations/loaders.riv"}
             artboard={"blue-tree"}
