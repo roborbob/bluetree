@@ -1,99 +1,108 @@
 /** @format */
-import styles from "./booking.css";
+// import styles from "./booking.css";
 
-// const styles = `.booking-calendar {
-//   container-type: inline-size;
-//   container-name: calendar;
-//   width: 100%;
-// }
+const styles = `.booking-calendar {
+  container-type: inline-size;
+  container-name: calendar;
+  width: 100%;
+}
 
-// .months-container {
-//   display: grid;
-//   width: 100%;
-//   gap: 2rem;
-//   grid-template-columns: 1fr;
-//   transition: transform 0.3s ease;
-// }
+.months-container {
+  display: grid;
+  /* width: 100%; */
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  transition: transform 0.3s ease;
+}
 
-// @container calendar (min-width: 420px) {
-//   .months-container {
-//     grid-template-columns: 1fr 1fr;
-//   }
-// }
+@container calendar (min-width: 420px) {
+  .months-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
-// @container calendar (min-width: 768px) {
-//   .months-container {
-//     grid-template-columns: 1fr 1fr 1fr;
-//   }
-// }
+@container calendar (min-width: 768px) {
+  .months-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 
-// @container calendar (min-width: 1024px) {
-//   .months-container {
-//     grid-template-columns: 1fr 1fr 1fr 1fr;
-//   }
-// }
-// * {
-//   font-family: Helvetica;
-// }
-// h2 {
-//   font-family: Georgia, "Times New Roman", Times, serif;
-//   font-weight: 300;
-//   font-size: 24px;
-// }
+@container calendar (min-width: 1024px) {
+  .months-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+* {
+  font-family: Helvetica;
+}
+h2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 300;
+  font-size: 24px;
+}
 
-// table {
-//   display: table;
-//   table-layout: auto;
-// }
+table {
+  width: 340px;
+  display: table;
+  table-layout: auto;
+}
 
-// caption {
-//   font-family: Helvetica;
-//   text-align: left;
-//   padding-left: 10px;
-//   margin-bottom: 10px;
-//   font-weight: 100;
-//   font-size: 18px;
-// }
+caption {
+  font-family: Helvetica;
+  text-align: left;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-weight: 100;
+  font-size: 18px;
+}
 
-// th {
-//   color: slategrey;
-//   text-align: center;
-//   font-size: 14px;
-//   font-weight: 400;
-//   width: calc(100% / 7);
-// }
+th {
+  color: slategrey;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  /* width: calc(100% / 7); */
+}
 
-// td {
-//   text-align: center;
-//   font-size: 14px;
-//   color: slategrey;
-//   height: 30px;
-//   font-weight: 100;
-//   width: calc(100% / 7);
-// }
-// td:hover {
-//   cursor: pointer;
-//   background-color: rgb(71, 255, 77);
-// }
+td {
+  text-align: center;
+  line-height: 1;
+  font-size: 14px;
+  color: rgb(92, 105, 119);
+  width: 40px;
+  height: 40px;
+  font-weight: 100;
+  /* width: calc(100% / 7); */
+  transition: 0.2s;
+  border-radius: 50%;
+  border: 2px solid white;
+}
 
-// td:nth-child(6),
-// td:nth-child(7) {
-//   background-color: rgb(255, 246, 118);
-// }
+td:nth-child(6),
+td:nth-child(7) {
+  /* background-color: rgb(255, 246, 118); */
+}
 
-// td:nth-child(6):hover,
-// td:nth-child(7):hover {
-//   background-color: rgb(71, 255, 77);
-// }
+td:nth-child(6):hover,
+td:nth-child(7):hover {
+  /* background-color: rgb(71, 255, 77); */
+}
 
-// .increment,
-// .decrement {
-//   padding: 20px;
-//   width: fit-content;
-//   margin: auto;
-//   font-size: 30px;
-//   font-weight: bold;
-// }`;
+td:hover {
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid rgb(0, 26, 52);
+}
+
+.increment,
+.decrement {
+  padding: 20px;
+  width: fit-content;
+  margin: auto;
+  font-size: 30px;
+  font-weight: bold;
+}
+`;
 
 const html = (year, date) => {
   return `
