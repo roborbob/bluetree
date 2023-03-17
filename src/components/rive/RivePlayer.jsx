@@ -24,11 +24,7 @@ export const RivePlayerTwo = ({ animation, artboard, stateMachine }) => {
     autoplay: "true",
   });
 
-  return (
-    <div className=" w-full md:w-[200px] h-[200px] hover:cursor-pointer ">
-      <RiveComponentPlayer />
-    </div>
-  );
+  return <RiveComponentPlayer />;
 };
 
 export const RivePlayerThree = ({ animation, artboard, stateMachine }) => {

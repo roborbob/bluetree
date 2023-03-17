@@ -8,7 +8,7 @@
 
 .months-container {
   display: grid;
-  width: 100%;
+  /* width: 100%; */
   gap: 2rem;
   grid-template-columns: 1fr;
   transition: transform 0.3s ease;
@@ -41,6 +41,7 @@ h2 {
 }
 
 table {
+  width: 340px;
   display: table;
   table-layout: auto;
 }
@@ -59,30 +60,37 @@ th {
   text-align: center;
   font-size: 14px;
   font-weight: 400;
-  width: calc(100% / 7);
+  /* width: calc(100% / 7); */
 }
 
 td {
   text-align: center;
+  line-height: 1;
   font-size: 14px;
-  color: slategrey;
-  height: 30px;
+  color: rgb(92, 105, 119);
+  width: 40px;
+  height: 40px;
   font-weight: 100;
-  width: calc(100% / 7);
-}
-td:hover {
-  cursor: pointer;
-  background-color: rgb(71, 255, 77);
+  /* width: calc(100% / 7); */
+  transition: 0.2s;
+  border-radius: 50%;
+  border: 2px solid white;
 }
 
 td:nth-child(6),
 td:nth-child(7) {
-  background-color: rgb(255, 246, 118);
+  /* background-color: rgb(255, 246, 118); */
 }
 
 td:nth-child(6):hover,
 td:nth-child(7):hover {
-  background-color: rgb(71, 255, 77);
+  /* background-color: rgb(71, 255, 77); */
+}
+
+td:hover {
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid rgb(0, 26, 52);
 }
 
 .increment,

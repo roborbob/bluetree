@@ -1,10 +1,18 @@
 ---
 import Logo from "../assets/logo.svg";
 import "../global.css";
+import { RivePlayerTwo } from "../components/rive/RivePlayer";
 import ThreeScene from "../components/three/ThreeScene";
+import Rive from "@rive-app/canvas/rive_advanced.mjs";
 export interface Props {
   title: string;
 }
+
+const ROUTES = [
+  { name: "Animation", href: "/" },
+  { name: "Components", href: "/components/" },
+  { name: "About", href: "/about/" },
+];
 
 const { title } = Astro.props;
 ---
@@ -19,35 +27,35 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="relative">
-    <div
-      class="fixed left-0 w-full h-auto md:w-[150px] lg:w-[200px] border-r-[2px] border-slate-800 md:h-screen z-10 bg-white"
-    >
-      <ul>
-        <li
-          class="w-full border-b-[1px] border-slate-800 text-slate-700 p-5 text-thin text-2xl"
-        >
-          <a href="/"> Animation</a>
-        </li>
-        <li
-          class="w-full border-b-[1px] border-slate-800 text-slate-700 p-5 text-thin text-2xl"
-        >
-          <a href="/about/"> About</a>
-        </li>
-        <li
-          class="w-full border-b-[1px] border-slate-800 text-slate-700 p-5 text-thin text-2xl"
-        >
-          <a href="/components/">Components</a>
-        </li>
-      </ul>
+    <div class="grid grid-cols-1 md:grid-cols-[300px,1fr] relative align-start">
+      <div class="sticky w-full h-fit top-0">
+        <div class="w-[150px] h-[150px] mt-10 ml-10">
+          <RivePlayerTwo
+            animation={"/assets/animations/loaders.riv"}
+            artboard={"blue-tree"}
+            stateMachine="state"
+            client:load
+          />
+        </div>
+        <ul class="mt-10">
+          {
+            ROUTES.map((e) => (
+              <li class="w-fit pl-16 py-5 text-xl">
+                <a class="hover:!text-blue-500" href={e.href}>
+                  {e.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="w-full">
+        <slot />
+      </div>
     </div>
-    <div
-      class="md:left-[150px] lg:left-[200px] absolute w-full top-[160px] md:top-0 md:w-[calc(100%-150px)] lg:w-[calc(100%-200px)]"
-    >
-      <slot />
-    </div>
-    <script
+    <!-- <script
       src="https://cdn.jsdelivr.net/gh/roborbob/astro-skeleton@main/src/web/calendar.js"
-    ></script>
-    <!-- <script src="../web/calendar.js"></script> -->
+    ></script> -->
+    <script src="../web/calendar.js"></script>
   </body>
 </html>
