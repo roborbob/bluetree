@@ -16,7 +16,7 @@
     "@astrojs/tailwind": "^3.1.1",
     "@rive-app/canvas": "^1.0.102",
     "@rive-app/react-canvas": "^3.0.34",
-    "astro": "^2.1.3",
+    "astro": "^2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rellax": "^1.12.1",
