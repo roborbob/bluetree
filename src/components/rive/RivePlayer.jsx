@@ -10,7 +10,10 @@ export const RivePlayerOne = ({ animation, artboard }) => {
   });
 
   return (
-    <div className="w-full md:w-[200px] h-[300px] md:h-[200px] hover:cursor-pointer ">
+    <div
+      className="w-full md:w-[200px] h-[300px] md:h-[200px] hover:cursor-pointer duration-500 ease-in"
+      data-scroll={3}
+    >
       <RiveComponentPlayer />
     </div>
   );

@@ -103,112 +103,127 @@ td:hover {
   font-weight: bold;
 }
 `;
+const WEEK = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const html = (year, date) => {
   return `
   <h2 data-year="2023">${year}</h2>
     <section class="months-container bg-slate-900">
-    ${date
-      .map((e, t) =>
-        t < 12
-          ? `<table class="months"><caption class="months-title">${
-              e.month
-            }</caption><thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead><tbody>
-        <tr>
-        ${e.week
-          .map(
-            (a, i) =>
-              `<td class="days" data-time="${new Date(
-                year,
-                t,
-                i >= e.startDay && i - e.startDay + 1
-              )}" >${i >= e.startDay ? `${i - e.startDay + 1}` : ``}</td>`
-          )
-          .join("")} 
-        </tr>
-        <tr>
-        ${e.week
-          .map(
-            (a, i) =>
-              `<td class="days" data-time="${new Date(
-                year,
-                t,
-                e.days[i + 7 - e.startDay] + 1
-              )}">${e.days[i + 7 - e.startDay] + 1}</td>`
-          )
-          .join("")}  
-        </tr>
-        <tr>
-        ${e.week
-          .map(
-            (a, i) =>
-              `<td class="days" data-time="${new Date(
-                year,
-                t,
-                e.days[i + 14 - e.startDay] + 1
-              )}">${e.days[i + 14 - e.startDay] + 1}</td>`
-          )
-          .join("")}  
-        </tr>
-        <tr>
-        ${e.week
-          .map(
-            (a, i) =>
-              `<td class="days" data-time="${new Date(
-                year,
-                t,
-                e.days[i + 21 - e.startDay] + 1
-              )}">${e.days[i + 21 - e.startDay] + 1}</td>`
-          )
-          .join("")}  
-        </tr>
-        <tr>
-        ${e.week
-          .map(
-            (a, i) =>
-              `<td class="days" data-time="${new Date(
-                year,
-                t,
-                e.days[i + 28 - e.startDay] + 1
-              )}">${
-                e.days[i + 28 - e.startDay]
-                  ? `${e.days[i + 28 - e.startDay] + 1}`
-                  : ``
-              }</td>`
-          )
-          .join("")}  
-        </tr>
-        ${
-          e.days[35 - e.startDay]
-            ? `<tr>
-        ${e.week
-          .map(
-            (a, i) =>
-              `<td class="days" data-time="${new Date(
-                year,
-                t,
-                e.days[i + 35 - e.startDay] + 1
-              )}">${
-                e.days[i + 35 - e.startDay]
-                  ? `${e.days[i + 35 - e.startDay] + 1}`
-                  : ``
-              }</td>`
-          )
-          .join("")}  
-        </tr>  `
-            : ``
-        }    
-    </tbody></table>`
-          : ``
-      )
-      .join("")}
-      </section>`;
+    <div class="months">
+   ${date
+     .map(
+       (e, i) =>
+         `<div class="">${e.month}<div class="days">${e.week
+           .map(
+             (a, i) => `
+           <div>${WEEK[i]}</div></div>`
+           )
+           .join("")}`
+     )
+     .join("")} 
+   </div>
+    </section>`;
 };
+// ${date
+//   .map((e, t) =>
+//     t < 12
+//       ? `<table class="months"><caption class="months-title">${
+//           e.month
+//         }</caption><thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead><tbody>
+//     <tr>
+//     ${e.week
+//       .map(
+//         (a, i) =>
+//           `<td class="days" data-time="${new Date(
+//             year,
+//             t,
+//             i >= e.startDay && i - e.startDay + 1
+//           )}" data-scroll="5" >${
+//             i >= e.startDay ? `${i - e.startDay + 1}` : ``
+//           }</td>`
+//       )
+//       .join("")}
+//     </tr>
+//     <tr>
+//     ${e.week
+//       .map(
+//         (a, i) =>
+//           `<td class="days" data-time="${new Date(
+//             year,
+//             t,
+//             e.days[i + 7 - e.startDay] + 1
+//           )}">${e.days[i + 7 - e.startDay] + 1}</td>`
+//       )
+//       .join("")}
+//     </tr>
+//     <tr>
+//     ${e.week
+//       .map(
+//         (a, i) =>
+//           `<td class="days" data-time="${new Date(
+//             year,
+//             t,
+//             e.days[i + 14 - e.startDay] + 1
+//           )}">${e.days[i + 14 - e.startDay] + 1}</td>`
+//       )
+//       .join("")}
+//     </tr>
+//     <tr>
+//     ${e.week
+//       .map(
+//         (a, i) =>
+//           `<td class="days" data-time="${new Date(
+//             year,
+//             t,
+//             e.days[i + 21 - e.startDay] + 1
+//           )}">${e.days[i + 21 - e.startDay] + 1}</td>`
+//       )
+//       .join("")}
+//     </tr>
+//     <tr>
+//     ${e.week
+//       .map(
+//         (a, i) =>
+//           `<td class="days" data-time="${new Date(
+//             year,
+//             t,
+//             e.days[i + 28 - e.startDay] + 1
+//           )}">${
+//             e.days[i + 28 - e.startDay]
+//               ? `${e.days[i + 28 - e.startDay] + 1}`
+//               : ``
+//           }</td>`
+//       )
+//       .join("")}
+//     </tr>
+//     ${
+//       e.days[35 - e.startDay]
+//         ? `<tr>
+//     ${e.week
+//       .map(
+//         (a, i) =>
+//           `<td class="days" data-time="${new Date(
+//             year,
+//             t,
+//             e.days[i + 35 - e.startDay] + 1
+//           )}">${
+//             e.days[i + 35 - e.startDay]
+//               ? `${e.days[i + 35 - e.startDay] + 1}`
+//               : ``
+//           }</td>`
+//       )
+//       .join("")}
+//     </tr>  `
+//         : ``
+//     }
+// </tbody></table>`
+//       : ``
+//   )
+//   .join("")}
 
 class BookingCalendar extends HTMLElement {
   constructor() {
     super();
-    console.log("working");
     const shadow = this.attachShadow({ mode: "open" });
 
     function ToggleSelction(e) {
