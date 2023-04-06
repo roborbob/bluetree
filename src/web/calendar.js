@@ -318,4 +318,4 @@ class BookingCalendar extends HTMLElement {
   }
 }
 
-customElements.define("booking-calendar", BookingCalendar);
+// customElements.define("booking-calendar", BookingCalendar);
