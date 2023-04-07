@@ -15,6 +15,7 @@ export default function Form() {
     const options = {
       method: "POST",
       body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
     };
     try {
       const response = await fetch(
