@@ -1,9 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const Array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 ---
 
 <Layout title="cart">
-  <div class="max-w-[900px] mx-auto">
-    <booking-calendar data-date={new Date()}></booking-calendar>
+  <div class="max-w-full mx-auto">
+    <!-- <booking-calendar data-date={new Date()}></booking-calendar> -->
+    <swiper-container
+      class="w-[100vw]"
+      slides-per-view="4"
+      loop="false"
+      centered-slides="true"
+      space-between="0"
+    >
+      {
+        Array.map((el) => (
+          <swiper-slide>
+            <div class="bg-red-400 rounded-xl w-[60px] h-[60px] flex justify-center items-center">
+              {el}
+            </div>
+          </swiper-slide>
+        ))
+      }
+    </swiper-container>
   </div>
 </Layout>
