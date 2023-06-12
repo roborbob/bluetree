@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Upload from "../components/form/Upload.jsx";
 
 const Array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 ---
@@ -7,24 +8,23 @@ const Array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 <Layout title="cart">
   <div class="max-w-full mx-auto">
     <!-- <booking-calendar data-date={new Date()}></booking-calendar> -->
-    <swiper-container
-      class="w-[100vw]"
+    <!-- <swiper-container
       slides-per-view="4"
       speed="500"
       loop="false"
       centered-slides="true"
       space-between="0"
-      css-mode="true"
     >
       {
         Array.map((el) => (
           <swiper-slide>
-            <div class="bg-red-400 rounded-xl w-[60px] h-[60px] flex justify-center items-center">
+            <div class="bg-red-400 rounded-xl w-16 h-16 flex justify-center items-center">
               {el}
             </div>
           </swiper-slide>
         ))
       }
-    </swiper-container>
+    </swiper-container> -->
+    <Upload client:load />
   </div>
 </Layout>
