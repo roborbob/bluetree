@@ -20,7 +20,7 @@ function GetCamera() {
       let stream = null;
 
       stream = await window.navigator.mediaDevices.getUserMedia({
-        video: {},
+        video: { facingMode: { exact: "environment" } },
       });
       VideoRef.current.srcObject = stream;
       VideoRef.current.onloadedmetadata = () => {
